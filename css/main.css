@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap');
+html,body{
+margin: 0;
+padding: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 28px;
+    color: #6a6a6a;
+    font-size: 14px;
+}
+.custom-navbar{
+    background-color: #f0c300 !important;
+
+}
+/* section appel a l'action */
+.hero{
+    background-color: #f0c300;
+    padding: calc(8rem - 30px) 0 8rem 0;
+}
+.hero .intro-excerpt {
+    position: relative;
+    z-index: 4;
+}
+.hero h1{
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+.hero h3{
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+.btn {
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background-color: #8B0000;
+}
+/* section produit */
+.product-section {
+    padding: 7rem 0;
+}
+.product-section .product-item {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding-bottom: 50px;
+    cursor: pointer;
+}
+
+/* footer section */
+.footer-section {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.footer-section .relative {
+    position: relative;
+}
+
+
