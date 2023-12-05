@@ -12,7 +12,11 @@ body{
 }
 .custom-navbar{
     background-color: #f0c300 !important;
-
+}
+.custom-navbar .navbar-brand {
+    font-size: 30px;
+    font-weight: 600; 
+    letter-spacing: -1px;
 }
 /* section appel a l'action */
 .hero{
