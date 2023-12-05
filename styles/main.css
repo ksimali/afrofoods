@@ -18,6 +18,9 @@ body{
     font-weight: 600; 
     letter-spacing: -1px;
 }
+.custom-navbar .navbar-brand > span {
+    opacity: .4; }
+    
 /* section appel a l'action */
 .hero{
     background-color: #f0c300;
