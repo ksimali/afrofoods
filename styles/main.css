@@ -59,6 +59,7 @@ body{
     display: flex;
     width: 20px;
     height: 20px;
+    font-size: 0.8em;
     background-color: red;
     justify-content: center;
     align-items: center;
