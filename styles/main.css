@@ -52,7 +52,22 @@ body{
     margin-right: 0px; }
 .custom-navbar .custom-navbar-cta li:first-child {
     margin-right: 20px; }
-
+.custom-navbar-cta li:last-child{
+    position: relative;
+}
+.count{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    color: #ffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right:-10px;
+}
 /* section appel a l'action */
 .hero{
     background-color: #f0c300;
