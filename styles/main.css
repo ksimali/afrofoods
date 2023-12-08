@@ -23,9 +23,11 @@
       transition: .15s all ease-out;
     } 
     .custom-navbar .custom-navbar-cta {
-        margin-left: 40px !important; }
+        margin-left: 40px !important; 
+    }
 }
 
+/* html/body*/
 html,body{
 margin: 0;
 padding: 0;
@@ -36,7 +38,9 @@ body{
     line-height: 28px;
     color: #6a6a6a;
     font-size: 14px;
+    background: #ffffff;
 }
+/* header/ navbar */
 .custom-navbar{
     background-color: #f0c300 !important;
 }
@@ -69,7 +73,7 @@ body{
     top: 50%;
     right:-10px;
 }
-/* section appel a l'action */
+/* hero section */
 .hero{
     background-color: #f0c300;
     padding: calc(8rem - 30px) 0 8rem 0;
@@ -88,13 +92,14 @@ body{
     color: #ffffff;
     margin-bottom: 30px;
 }
+
 .btn {
     font-weight: 600;
     padding: 12px 30px;
     border-radius: 30px;
     background-color: #8B0000;
 }
-/* section produit */
+/* best product section  */
 .product-section {
     padding: 7rem 0;
 }
@@ -106,15 +111,20 @@ body{
     padding-bottom: 50px;
     cursor: pointer;
 }
-
+.product-section .product-item h3, .product-section .product-item strong{
+    color: #2f2f2f;
+}
+.product-section .product-item h3{
+    font-weight: 600;
+    font-size: 16px;
+}
 /* footer section */
 .footer-section {
     left: 0;
     bottom: 0;
     width: 100%;
+    background: #eff2f1;
 }
-.footer-section .relative {
-    position: relative;
-}
+
 
 
