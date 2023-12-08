@@ -28,7 +28,12 @@
 .quantity-container{
     text-align: center;
     align-items: center;
-    max-width: 120px;
+    justify-content:center;
+}
+.quantity-amount{
+    margin: 0;
+    padding: 0;
+    max-width: 60px;
 }
 .form-control{
     align-items: center;
