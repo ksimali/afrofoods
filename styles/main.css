@@ -86,11 +86,11 @@ body{
     color: #ffffff;
     margin-bottom: 30px;
 }
+.hero img{
+    border-radius: 20px 20px 20px 20px;
+}
 /* All pages */
 .co-section {
-    padding: 7rem 0;
-}
-.untree_co-section {
     padding: 7rem 0;
 }
 /* best product section  */
@@ -153,12 +153,24 @@ textarea {
 .text-primary{
     color: #f0c300 !important;
 }
+/* Contact page */
+.info .info-icon{
+    border-radius: 10px;
+    flex: 0 0 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color:#ffffff;
+    margin-right: 20px;
+    background-color: #f0c300;
+}
+.info{
+    line-height: 1.5em;
+}
 /* footer section */
 .footer-section {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: #eff2f1;
+    background-color: #ffffff;
+    padding: 40px 0;
 }
 
 
