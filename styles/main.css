@@ -127,7 +127,7 @@ body{
     background: #2f2f2f;
     border-color: #2f2f2f; 
 }
-/* Formulaires */
+/* Checkout page */
 .form-control {
     height: 50px;
     border-radius: 10px;
@@ -136,6 +136,22 @@ body{
 }
 textarea {
     height: auto !important;
+}
+/* Thankyou page*/
+.thankyou-icon{
+    position: relative;
+    color: #f0c300;
+}
+.thankyou-icon:before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(59, 93, 80, 0.2);
+}
+.text-primary{
+    color: #f0c300 !important;
 }
 /* footer section */
 .footer-section {
