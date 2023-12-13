@@ -50,7 +50,7 @@
                     <!-- Sign in -->
                     <div class="row justify-content-center mb-5">
                         <div class="col-md-8">
-                            <div class="border p-4 rounded"> 
+                            <div class="border p-4 rounded-4"> 
                                 Déjà Client?
                                 <a href="/pages/signin.html">Cliquez ici</a>
                                 pour se connecter
@@ -60,77 +60,79 @@
                     <!-- Registration Form -->
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <form action="" method="" novalidate>
-                                <div class="form-group mb-3">
-                                    <label for="provinces" class="text-black">Province</label>
-                                    <select name="provinces" id="provinces" class="form-control">
-                                        <option value="1">Choisir une province</option>
-                                        <option value="2">Terre-Neuve-et-Labrador</option>
-                                        <option value="3">Île-du-Prince_Édouard</option>
-                                        <option value="4">Nouvelle-Écosse</option>
-                                        <option value="5">Nouveau-Brunswick</option>
-                                        <option value="6">Québec</option>
-                                        <option value="7">Ontario</option>
-                                        <option value="8">Manitoba</option>
-                                        <option value="9">Saskatchewan</option>
-                                        <option value="10">Alberta</option>
-                                        <option value="11">Colombie-Britannique</option>
-                                        <option value="12">Nunavut</option>
-                                        <option value="13">Territoires du Nord-Ouest</option>
-                                        <option value="14">Yukon</option>
-                                    </select>
-                                </div>
-                                <div class="form-group mb-3 row">
-                                    <div class="col-md-6">
-                                        <label for="firstname" class="text-black">Prénom</label>
-                                        <input type="text" class="form-control" id="firstname" name="firstname">
+                            <div class="p-5 p-lg-5 border rounded-4 bg-white">
+                                <form action="" method="" novalidate>
+                                    <div class="form-group mb-3">
+                                        <label for="provinces" class="text-black">Province</label>
+                                        <select name="provinces" id="provinces" class="form-control">
+                                            <option value="1">Choisir une province</option>
+                                            <option value="2">Terre-Neuve-et-Labrador</option>
+                                            <option value="3">Île-du-Prince_Édouard</option>
+                                            <option value="4">Nouvelle-Écosse</option>
+                                            <option value="5">Nouveau-Brunswick</option>
+                                            <option value="6">Québec</option>
+                                            <option value="7">Ontario</option>
+                                            <option value="8">Manitoba</option>
+                                            <option value="9">Saskatchewan</option>
+                                            <option value="10">Alberta</option>
+                                            <option value="11">Colombie-Britannique</option>
+                                            <option value="12">Nunavut</option>
+                                            <option value="13">Territoires du Nord-Ouest</option>
+                                            <option value="14">Yukon</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="lastname" class="text-black">Nom</label>
-                                        <input type="text" class="form-control" id="lastname" name="lastname">
+                                    <div class="form-group mb-3 row">
+                                        <div class="col-md-6">
+                                            <label for="firstname" class="text-black">Prénom</label>
+                                            <input type="text" class="form-control" id="firstname" name="firstname">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="lastname" class="text-black">Nom</label>
+                                            <input type="text" class="form-control" id="lastname" name="lastname">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="entreprise" class="text-black">Entreprise</label>
-                                    <input type="text" class="form-control" id="entreprise" name="entreprise">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="adress" class="text-black">Adresse</label>
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="Rue">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Appartement,unit (option)">
-                                </div>
-                                <div class="form-group row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="ville" class="text-black">Ville</label>
-                                        <input type="text" class="form-control" id="ville" name="ville">
+                                    <div class="form-group mb-3">
+                                        <label for="entreprise" class="text-black">Entreprise</label>
+                                        <input type="text" class="form-control" id="entreprise" name="entreprise">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="codepostal" class="text-black"> Code Postal</label>
-                                        <input type="text" class="form-control" id="codepostal" name="codepostal">
+                                    <div class="form-group mb-3">
+                                        <label for="adress" class="text-black">Adresse</label>
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="Rue">
                                     </div>
-                                </div>
-                                <div class="form-group row mb-3">
-                                    <div class="col-md-6">
-                                        <label for="email" class="text-black">Courriel</label>
-                                        <input type="text" class="form-control" id="email" name="email">
+                                    <div class="form-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Appartement,unit (option)">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="phone" class="text-black">téléphone</label>
-                                        <input type="text" class="form-control" id="phone" name="phone">
+                                    <div class="form-group row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="ville" class="text-black">Ville</label>
+                                            <input type="text" class="form-control" id="ville" name="ville">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="codepostal" class="text-black"> Code Postal</label>
+                                            <input type="text" class="form-control" id="codepostal" name="codepostal">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <div class="form-group">
-                                        <label for="password" class="text-black">Mot de passe</label>
-                                        <input type="email" class="form-control" id="password" name="password" placeholder="mot de passe">
+                                    <div class="form-group row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="email" class="text-black">Courriel</label>
+                                            <input type="text" class="form-control" id="email" name="email">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="text-black">téléphone</label>
+                                            <input type="text" class="form-control" id="phone" name="phone">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group mt-5">
-                                    <button class="btn">Inscription</button>
-                                </div>
-                            </form>
+                                    <div class="form-group mb-3">
+                                        <div class="form-group">
+                                            <label for="password" class="text-black">Mot de passe</label>
+                                            <input type="email" class="form-control" id="password" name="password" placeholder="mot de passe">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-5">
+                                        <button class="btn">Inscription</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
