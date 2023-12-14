@@ -103,7 +103,10 @@ body{
     display: block;
     position: relative;
     padding-bottom: 50px;
-    cursor: pointer;
+    background-color:#eff2f1;
+}
+.product-item{
+    border: none;
 }
 .product-section .product-item h3, .product-section .product-item strong{
     color: #2f2f2f;
@@ -112,6 +115,7 @@ body{
     font-weight: 600;
     font-size: 16px;
 }
+
 
 /* button elements*/
 .btn {
