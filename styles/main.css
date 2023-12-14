@@ -116,7 +116,6 @@ body{
     font-size: 16px;
 }
 
-
 /* button elements*/
 .btn {
     font-weight: 600;
@@ -129,10 +128,12 @@ body{
 }
 .btn:hover {
     color: #ffffff;
-    background: #2f2f2f;
+    background-color: #f0c300;
     border-color: #2f2f2f; 
 }
-
+.btn-action:hover{
+    border: 2px solid white;
+}
 /** Menu page **/
 .card-img-top{
     border-radius: 50px;
@@ -148,10 +149,6 @@ body{
 }
 .btn-menu{
     padding: 10px 12px;
-}
-.btn-menu:hover{
-    background-color: #f0c300;
-    border: none;
 }
 
 /** Checkout page **/
