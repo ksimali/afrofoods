@@ -3,15 +3,17 @@ let listProductHTML = document.querySelector('.listProduct');
 
 //create an empty list product array where the js data are loaded
 let listProducts = [];
+
 /** Method which display each product item on the html menu pages */
 const addDataToHTML = () => {
     listProductHTML.innerHTML = '';
-    console.log(listProducts.length);
     if(listProducts.length > 0){
         listProducts.forEach(product =>{
-            let newProduct = document.createElement('div');
+            // create an div element with a .col class
+            let newProduct = document.createElement('div'); 
             newProduct.classList.add('col');
-            newProduct.innerHTML = `
+            // Add a html content into the new created div
+            newProduct.innerHTML = ` 
                 <div class="card">
                     <img src="${product.image}" class="card-img-top" alt="">
                     <div class="card-body">
@@ -20,7 +22,7 @@ const addDataToHTML = () => {
                     </div>
                     <div class="mb-5 d-flex justify-content-around">
                         <h3 class="align-baseline mb-0">${product.price} $</h3>
-                        <button class="btn btn-menu rounded-circle addCart"><img src="/images/cart.svg"></button>
+                        <button class="btn btn-menu rounded-circle addCart"><img src="/images/cart.svg" class="addCart"></button>
                     </div>
                 </div>
                 `;
@@ -30,8 +32,17 @@ const addDataToHTML = () => {
         })
     }
 }
-/*  Methode to get product data from json file 
-    to assign it to the listProduct variable */
+/** Method which add the product to cart 
+    when the user click on the cart image   */
+listProductHTML.addEventListener('click',(event) =>{
+    let positionClick = event.target;
+    if(positionClick.classList.contains('addCart')){
+        alert('1');
+    }
+})
+
+/*  Method to get product data from json file 
+    to assign it to the listProducts variable */
 const initApp = () => {
     fetch('/products.json')
     .then(response => response.json()) // read and parse the data using json() method
