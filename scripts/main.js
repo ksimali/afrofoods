@@ -1,8 +1,9 @@
-// Enregistrer une reférence pour le menu 
+// Enregistrer de reférences 
 let listProductHTML = document.querySelector('.listProduct');
 
-//create an empty list product array where the js data are loaded
-let listProducts = [];
+/** Declaration de variable et initialisation */
+let listProducts = []; //create an empty list product array where the js data are loaded
+
 
 /** Method which display each product item on the html menu pages */
 const addDataToHTML = () => {
@@ -23,7 +24,9 @@ const addDataToHTML = () => {
                     </div>
                     <div class="mb-5 d-flex justify-content-around">
                         <h3 class="align-baseline mb-0">${product.price} $</h3>
-                        <button class="btn btn-menu rounded-circle addCart"><img src="/images/cart.svg" class="addCart"></button>
+                        <button class="btn btn-menu rounded-circle">
+                            <img src="/images/cart.svg" class="addCart">
+                        </button>
                     </div>
                 </div>
                 `;
@@ -38,10 +41,15 @@ const addDataToHTML = () => {
 listProductHTML.addEventListener('click',(event) =>{
     let positionClick = event.target;
     if(positionClick.classList.contains('addCart')){
-        alert('1');
+        let product_id = positionClick.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        //call to addToCart method
+        addToCart(product_id);
     }
 })
-
+// Method which add an item to a cart
+const addToCart = (product_id) =>{
+    console.log('hello world!');
+}
 /*  Method to get product data from json file 
     to assign it to the listProducts variable */
 const initApp = () => {
