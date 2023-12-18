@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "name": "KOKI",
+        "image":"/images/Koki-1.jpg",
+        "price": 19.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    },
+    {
+        "id": 2,
+        "name": "NDOLE",
+        "image":"/images/ndole.webp",
+        "price": 22.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    },
+    {
+        "id": 3,
+        "name": "BEIGNETS AUX HARICOTS",
+        "image":"/images/Beignet-Haricot.jpg",
+        "price": 11.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    },
+    {
+        "id": 4,
+        "name": "EGUSI",
+        "image":"/images/Egusi-Puddingjpg.jpg",
+        "price": 19.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    },
+    {
+        "id": 5,
+        "name": "FUFU ET ERU",
+        "image":"/images/Fufu-and-Eru.jpg",
+        "price": 16.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    },
+    {
+        "id": 6,
+        "name": "SOUPE AUX PINOTTES",
+        "image":"/images/Groundnut-Soup.jpg",
+        "price": 11.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    },
+    {
+        "id": 7,
+        "name": "POULET DG",
+        "image":"/images/poulet-dg.jpeg",
+        "price": 25.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    },
+    {
+        "id": 8,
+        "name": "POISSON BRAISÉ",
+        "image":"/images/poisson-braisé.jpeg",
+        "price": 22.00,
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+    }
+
+]
