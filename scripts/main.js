@@ -12,6 +12,7 @@ const addDataToHTML = () => {
             // create an div element with a .col class
             let newProduct = document.createElement('div'); 
             newProduct.classList.add('col');
+            newProduct.dataset.id = product.id; // to get all the product id displayed on the page
             // Add a html content into the new created div
             newProduct.innerHTML = ` 
                 <div class="card">
