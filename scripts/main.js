@@ -153,5 +153,48 @@ function totalCost(product){
     }
     
 }
+/**
+ * fonction afficherCart() qui affiche le contenu du panier au chargement de la page cart.html
+ */
+function afficherCart(){
+    let cartItems = localStorage.getItem("productsInCart"); // récuperer dans localStorage le paramèter productInCart et l'affecter à la variable cartItems
+    cartItems = JSON.parse(cartItems); // convertit l'objet JSON récupérer en objet JS
+    let listContainer = document.querySelector(".list-container");
+    console.log(cartItems);
+    if(cartItems && listContainer){
+        listContainer.innerHTML = ''; // supprimer le panier au démarrage de la page
+        //// On parcourt les objet et on récupere les key values sous forme d'un tableau et on fait un .map pour recréer un tableau qui comprend le html
+        Object.values(cartItems).map(item =>{ 
+            listContainer.innerHTML += ` 
+            <tr class="list-cart">
+                <td class="product-image">
+                    <img src="${item.image}" alt="Ndole-repas" class="img-fluid rounded-4">
+                </td>
+                <td class="product-name">
+                    <h5 class="mb-0"> ${item.name}</h5>
+                </td>
+                <td>${item.price},00 $</td>
+                <td>
+                    <div class="input-group quantity-container">
+                        <div class="input-group-prepend">
+                            <button class="btn" type="button">&minus;</button>
+                        </div>
+                        <span class="mx-3">${item.inCart}</span>
+                        <div class="input-group-append">
+                            <button class="btn" type="button">&plus;</button>
+                        </div>
+                    </div>
+                </td>
+                <td>${item.price * item.inCart}</td>
+                <td><button class="btn" type="button">&times</button></td>
+            </tr>
+        `;
+        });
+        
+    }
+    console.log(cartItems);
+}
+
 // Appel de la fonction au chargement de la page.
-loadCartNumbers() 
+loadCartNumbers();
+afficherCart(); 
