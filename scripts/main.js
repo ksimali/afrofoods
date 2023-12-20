@@ -160,6 +160,8 @@ function afficherCart(){
     let cartItems = localStorage.getItem("productsInCart"); // récuperer dans localStorage le paramèter productInCart et l'affecter à la variable cartItems
     cartItems = JSON.parse(cartItems); // convertit l'objet JSON récupérer en objet JS
     let listContainer = document.querySelector(".list-container");
+    let totalPanier = document. querySelector(".total-panier");
+    let cartCost = localStorage.getItem("totalCost");
     console.log(cartItems);
     if(cartItems && listContainer){
         listContainer.innerHTML = ''; // supprimer le panier au démarrage de la page
@@ -190,6 +192,30 @@ function afficherCart(){
             </tr>
         `;
         });
+        totalPanier.innerHTML = `
+        <div class="row justify-content-end">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12 text-right border-bottom mb-2">
+                        <h3 class="text-uppercase"> Total panier</h3>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <span class="text-black">Total panier</span>
+                        </div>
+                        <div class="col-md-6 total-cart">
+                            <strong class="text-black">${cartCost},00 $</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="/pages/checkout.html"><button class="btn btn-black btn-lg">valider la commande</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+`;
         
     }
     console.log(cartItems);
