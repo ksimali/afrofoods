@@ -91,7 +91,7 @@ function loadCartNumbers(){
 };
 
 /**
- * fonction qui va compter le nombre d'item ajouter au panier sous conditions.
+ * fonction qui va compter le nombre d'item ajouter au panier
  */
 function cartNumbers(product){
     let productNumbers = localStorage.getItem('cartNumbers'); // récupérer l'objet stocké dans localStorage
