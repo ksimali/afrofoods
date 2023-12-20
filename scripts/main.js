@@ -4,53 +4,68 @@ let carts = document.querySelectorAll('.add-cart');
 // Declaration et initialisation d'un tableau contenant les menus
 let products = [
     {
-        "name": "KOKI",
-        "image":"/images/Koki-1.jpg",
-        "price": 19.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "KOKI",
+        tag: "koki",
+        image:"/images/Koki-1.jpg",
+        price: 19.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     },
     {
-        "name": "NDOLE",
-        "image":"/images/ndole.webp",
-        "price": 22.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "NDOLE",
+        tag: "ndole",
+        image:"/images/ndole.webp",
+        price: 22.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     },
     {
-        "name": "BEIGNETS AUX HARICOTS",
-        "image":"/images/Beignet-Haricot.jpg",
-        "price": 11.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "BEIGNETS AUX HARICOTS",
+        tag: "beignetsauxharicots",
+        image:"/images/Beignet-Haricot.jpg",
+        price: 11.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     },
     {
-        "id": 4,
-        "name": "EGUSI",
-        "image":"/images/Egusi-Puddingjpg.jpg",
-        "price": 19.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "EGUSI",
+        tag: "egusi",
+        image:"/images/Egusi-Puddingjpg.jpg",
+        price: 19.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     },
     {
-        "name": "FUFU ET ERU",
-        "image":"/images/Fufu-and-Eru.jpg",
-        "price": 16.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "FUFU ET ERU",
+        tag: "fufueteru",
+        image:"/images/Fufu-and-Eru.jpg",
+        price: 16.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     },
     {
-        "name": "SOUPE AUX PINOTTES",
-        "image":"/images/Groundnut-Soup.jpg",
-        "price": 11.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "SOUPE AUX PINOTTES",
+        tag: "soupeauxpinottes",
+        image:"/images/Groundnut-Soup.jpg",
+        price: 11.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     },
     {
-        "name": "POULET DG",
-        "image":"/images/poulet-dg.jpeg",
-        "price": 25.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "POULET DG",
+        tag: "pouletdg",
+        image:"/images/poulet-dg.jpeg",
+        price: 25.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     },
     {
-        "name": "POISSON BRAISÉ",
-        "image":"/images/poisson-braisé.jpeg",
-        "price": 22.00,
-        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste."
+        name: "POISSON BRAISÉ",
+        tag: "poissonbraisé",
+        image:"/images/poisson-braisé.jpeg",
+        price: 22.00,
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.",
+        inCart: 0
     }
 ]
 
