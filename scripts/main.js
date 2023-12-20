@@ -63,6 +63,16 @@ for(let i=0;i < carts.length; i++){
         cartNumbers();
     })
 }
+/**
+ * fonction qui affiche le nombre d'item du panier dans 
+ * l'icone panier si existe
+ */
+function loadCartNumbers(){
+    let productNumbers = localStorage.getItem('cartNumbers');
+    if(productNumbers){
+        document.querySelector('.count').textContent = productNumbers;
+    }
+};
 
 /**
  * fonction qui va compter le nombre d'item ajouter au panier sous conditions.
