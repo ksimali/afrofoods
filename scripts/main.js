@@ -76,6 +76,7 @@ let products = [
 for(let i=0;i < carts.length; i++){
     carts[i].addEventListener('click',() =>{
         cartNumbers(products[i]); // Appel de la fonction cartNumbers auquel on passe un argument product[i]
+        totalCost(products[i]); // Appel de la fonction totalCost(calcul le cout total panier)
     })
 }
 /**
@@ -135,6 +136,22 @@ function setItems(product){
     //créer un objet js avec pour key name 'productInCart' et l'objet js cartItems comme key value qu'on convertit en JSON string
     localStorage.setItem("productsInCart", JSON.stringify(cartItems)); 
 
+}
+/**
+ * fonction qui calcul le montant total du panier
+ */
+function totalCost(product){
+    let cartCost = localStorage.getItem("totalCost");
+    //on peut calculer maintenant
+    if(cartCost != null){
+        // convertit la variable string cartCost en paramètre en nombre
+        cartCost = parseInt(cartCost); 
+        // calcul du total et sauvegarde dans localStorage paramètre totalCost
+        localStorage.setItem("totalCost", cartCost + product.price);
+    }else{
+        localStorage.setItem("totalCost", product.price)
+    }
+    
 }
 // Appel de la fonction au chargement de la page.
 loadCartNumbers() 
