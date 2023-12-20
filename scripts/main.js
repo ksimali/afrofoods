@@ -181,7 +181,7 @@ function afficherCart(){
                         <div class="input-group-prepend">
                             <button class="btn" type="button">&minus;</button>
                         </div>
-                        <span class="mx-3">${item.inCart}</span>
+                        <span class="mx-1">${item.inCart}</span>
                         <div class="input-group-append">
                             <button class="btn" type="button">&plus;</button>
                         </div>
