@@ -62,7 +62,7 @@
                     <div class="col-md-6">
                         <h2 class="mb-3 text-black">Details Facturation</h2>
                         <div class="p-3 p-lg-5 border rounded bg-white">
-                            <form action="" method="" novalidate>
+                            <form action="" method="" id="registrationForm" novalidate>
                                 <div class="form-group mb-2">
                                     <label for="provinces" class="text-black">Province</label>
                                     <select name="provinces" id="provinces" class="form-control">
@@ -85,11 +85,13 @@
                                 <div class="form-group mb-2 row">
                                     <div class="col-md-6">
                                         <label for="firstname" class="text-black">Prénom</label>
-                                        <input type="text" class="form-control" id="firstname" name="firstname">
+                                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Christian">
+                                        <div class="error" id="firstname-error"></div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="lastname" class="text-black">Nom</label>
-                                        <input type="text" class="form-control" id="lastname" name="lastname">
+                                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Dior">
+                                        <div class="error" id="lastname-error"></div>
                                     </div>
                                 </div>
                                 <div class="form-group mb-2">
@@ -98,65 +100,99 @@
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="adress" class="text-black">Adresse</label>
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="Rue">
+                                    <input type="text" class="form-control" id="address1" name="address" placeholder="234 Rue de l'aube">
+                                    <div class="error" id="address1-error"></div>
                                 </div>
                                 <div class="form-group mb-2">
-                                    <input type="text" class="form-control" placeholder="Appartement,unit (option)">
+                                    <input type="text" class="form-control" id="address2" placeholder="Appartement,unit (option)">
+                                    <div class="error" id="address2-error"></div>
                                 </div>
                                 <div class="form-group row mb-2">
                                     <div class="col-md-6">
                                         <label for="ville" class="text-black">Ville</label>
-                                        <input type="text" class="form-control" id="ville" name="ville">
+                                        <input type="text" class="form-control" id="ville" name="ville" placeholder="Montreal">
+                                        <div class="error" id="ville-error"></div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="codepostal" class="text-black"> Code Postal</label>
-                                        <input type="text" class="form-control" id="codepostal" name="codepostal">
+                                        <input type="text" class="form-control" id="code-postal" name="codepostal" placeholder="H2J1W4">
+                                        <div class="error" id="codepostal-error"></div>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-5">
                                     <div class="col-md-6">
                                         <label for="email" class="text-black">Courriel</label>
-                                        <input type="text" class="form-control" id="email" name="email">
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="christiandior@dior.ca">
+                                        <div class="error" id="email-error"></div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="phone" class="text-black">téléphone</label>
-                                        <input type="text" class="form-control" id="phone" name="phone">
-                                    </div>
-                                </div>
-                                <div class="form-group"> 
-                                    <label  for="create_account" 
-                                            class="text-black"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#create_an_account"
-                                            role="button"
-                                            aria-expanded="false"
-                                            aria-controls="create_an_account">
-                                            <input type="checkbox" value="1" id="create_account">
-                                            Créer un compte ?
-                                    </label>
-                                    <div class="collapse" id="create_an_account">
-                                        <div class="py-2 mb-4">
-                                            <p class="mb-3">
-                                                Créer un compte en entrant un mot de passe ci-dessous.
-                                                Si vous êtes déjà client, connectez-vous en cliquant en haut de la page.
-                                            </p>
-                                            <div class="form-group">
-                                                <label for="password" class="text-black">Mot de passe</label>
-                                                <input type="email" class="form-control" id="password" name="password" placeholder="mot de passe">
-                                            </div>
-                                        </div>
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="(514) 234-5678">
+                                        <div class="error" id="phone-error"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="password" class="text-black">Mot de passe</label>
+                                    <input type="email" class="form-control" id="password" name="password" placeholder="mot de passe">
+                                    <div class="error" id="password-error"></div>
+                                </div>
+                                <div class="form-group">
                                     <label for="notes" class="text-black">Notes</label>
-                                    <textarea class="form-control" name="notes" id="notes" rows="5">
+                                    <textarea class="form-control" name="notes" id="notes" rows="5" placeholder="Veuillez entrez des informations de livraison importantes!">
                                         
                                     </textarea>
                                 </div>
                                 <div class="form-group mt-5">
-                                    <button class="btn btn-yellow">Enregistrer</button>
+                                    <button type="submit" class="btn btn-yellow">Enregistrer</button>
                                 </div>
                             </form>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Informations - </h1>
+                                    <h2 class="modal-title fs-5" id="exampleModalLabel">Felicitations vous êtes enregistré !</h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="text-center">
+                                            <tr>
+                                                <td>Prenom : </td>
+                                                <td><label id="prenomModal"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nom : </td>
+                                                <td><label id="nomModal"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Adresse Courriel : </td>
+                                                <td><label id="courrielModal"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Numero de téléphone : </td>
+                                                <td><label id="phoneModal"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Adresse : </td>
+                                                <td><label id="adress1modal"></label></td>
+                                                <td><label id="adress2modal"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ville : </td>
+                                                <td><label id="villeModal"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Code Postal : </td>
+                                                <td><label id="codepostalModal"></label></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="myModal" onclick="closeModal()">OK</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -202,3 +238,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Custom js-->
     <script src="/scripts/main.js"></script>
+    <script src="/scripts/formValidation.js"></script>
+</body>
+</html>
