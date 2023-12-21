@@ -258,6 +258,14 @@ document.addEventListener('click', function (event) {
         // Appel de la fonction deleteItemInCart avec l'indice
         deleteItemInCart(index);
     }
+    // Vérifie si l'élément cliqué est le bouton commander
+    if (event.target.classList.contains('btn-commander')) {
+        // Obtient l'indice de l'élément cliqué
+        let index = Array.from(document.querySelectorAll('.btn-commander')).indexOf(event.target);
+        
+        // Appel de la fonction reinitialiserLocalStorage avec l'indice
+        reinitialiserLocalStorage();
+    }
 });
 
 // =========== FONCTION DE GESTION D'EVENEMENENTS =========
@@ -380,7 +388,66 @@ function reduireQuantite(index) {
     }
 }
 
+// Fonction permettant d'afficher le recap du panier
+function afficherRecapitulatif() {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    console.log(cartItems)
+    let recapContainer = document.querySelector(".recap-container");
+
+    if (cartItems && recapContainer) {
+        recapContainer.innerHTML = ''; // Réinitialise le contenu
+
+        let sousTotal = 0;
+
+        Object.values(cartItems).forEach(item => {
+            recapContainer.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.price.toFixed(2)} $</td>
+                    <td>${item.inCart}</td>
+                    <td>${(item.price * item.inCart).toFixed(2)} $</td>
+                </tr>
+            `;
+            sousTotal += item.price * item.inCart;
+        });
+
+        // Ajoute les lignes pour le sous-total, TPS, TVQ et total
+        recapContainer.innerHTML += `
+            <tr>
+                <td colspan="3" class="text-black font-weight-bold">
+                    <strong>SOUS-TOTAL</strong>
+                </td>
+                <td>${sousTotal.toFixed(2)} $</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>TPS</strong>
+                </td>
+                <td>${(sousTotal * 0.05).toFixed(2)} $</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>TVQ</strong>
+                </td>
+                <td>${(sousTotal * 0.09975).toFixed(2)} $</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>TOTAL</strong>
+                </td>
+                <td>${(sousTotal + sousTotal * 0.05 + sousTotal * 0.09975).toFixed(2)} $</td>
+            </tr>
+        `;
+    }
+}
+
+// Vider les elements du localStorage
+function reinitialiserLocalStorage() {
+    localStorage.clear();
+}
 
 // Appel de la fonction au chargement de la page.
 loadCartNumbers();
 afficherCart();
+afficherRecapitulatif();
