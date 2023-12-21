@@ -162,7 +162,6 @@ function afficherCart(){
     let listContainer = document.querySelector(".list-container");
     let totalPanier = document. querySelector(".total-panier");
     let cartCost = localStorage.getItem("totalCost");
-    console.log(cartItems);
     if(cartItems && listContainer){
         listContainer.innerHTML = ''; // supprimer le panier au démarrage de la page
         //// On parcourt les objet et on récupere les key values sous forme d'un tableau et on fait un .map pour recréer un tableau qui comprend le html
@@ -179,16 +178,16 @@ function afficherCart(){
                 <td>
                     <div class="input-group quantity-container">
                         <div class="input-group-prepend">
-                            <button class="btn" type="button">&minus;</button>
+                            <button class="btn btn-moins" type="button">&minus;</button>
                         </div>
                         <span class="mx-1">${item.inCart}</span>
                         <div class="input-group-append">
-                            <button class="btn" type="button">&plus;</button>
+                            <button class="btn btn-plus" type="button">&plus;</button>
                         </div>
                     </div>
                 </td>
                 <td>${item.price * item.inCart}</td>
-                <td><button class="btn" type="button">&times</button></td>
+                <td><button class="btn btn-delete" type="button">&times</button></td>
             </tr>
         `;
         });
@@ -218,9 +217,33 @@ function afficherCart(){
 `;
         
     }
-    console.log(cartItems);
 }
+
+// =========== MISE A JOUR PANIER =========
+function update(){
+    addEvents();
+}
+// =========== AJOUT EVENEMENENTS =========
+function addEvents(){
+    //supprimer un item du panier lors d'un evenement clickf
+    let lesBoutonsDelete = document.querySelectorAll('.btn-delete');
+    console.log(lesBoutonsDelete);
+    lesBoutonsDelete.forEach((btn) => {
+        btn.addEventListener("click", deleteItemInCart);
+    });
+}
+// =========== FONCTION DE GESTION D'EVENEMENENTS =========
+function deleteItemInCart(product){
+    this.parentElement.parentElement.remove();
+    let cartItems = localStorage.getItem("productsInCart"); // récuperer dans localStorage le paramèter productInCart et l'affecter à la variable cartItems
+    cartItems = JSON.parse(cartItems); // convertit l'objet JSON récupérer en objet JS
+
+    console.log(cartItems);
+    update();
+}
+
 
 // Appel de la fonction au chargement de la page.
 loadCartNumbers();
-afficherCart(); 
+afficherCart();
+addEvents();
