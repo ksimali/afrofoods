@@ -1,5 +1,28 @@
 // Récupération d'élements du dom de la class add-cart
-let carts = document.querySelectorAll('.add-cart');
+//let carts = document.querySelectorAll('.add-cart');
+
+/**
+ * procédure qui compte le nombre d'item dans le panier 
+ * à chaque evenement click sur .add-cart element
+ */
+/*for(let i=0;i < carts.length; i++){
+    carts[i].addEventListener('click',() =>{
+        cartNumbers(products[i]); // Appel de la fonction cartNumbers auquel on passe un argument product[i]
+        totalCost(products[i]); // Appel de la fonction totalCost(calcul le cout total panier)
+    })
+}*/
+
+document.addEventListener('click', function (event) {
+    // Vérifie si l'élément cliqué est un bouton d'ajout dans le panier
+    if (event.target.classList.contains('add-cart')) {
+        // Obtient l'indice de l'élément cliqué
+        let index = Array.from(document.querySelectorAll('.add-cart')).indexOf(event.target);
+        
+        // Appel des fonctions cartNumbers et totalCost avec l'indice
+        cartNumbers(products[index]); // Appel de la fonction cartNumbers auquel on passe un argument product[i]
+        totalCost(products[index]); // Appel de la fonction totalCost(calcul le cout total panier)    
+    }
+});
 
 // Declaration et initialisation d'un tableau contenant les menus
 let products = [
@@ -69,16 +92,6 @@ let products = [
     }
 ]
 
-/**
- * procédure qui compte le nombre d'item dans le panier 
- * à chaque evenement click sur .add-cart element
- */
-for(let i=0;i < carts.length; i++){
-    carts[i].addEventListener('click',() =>{
-        cartNumbers(products[i]); // Appel de la fonction cartNumbers auquel on passe un argument product[i]
-        totalCost(products[i]); // Appel de la fonction totalCost(calcul le cout total panier)
-    })
-}
 /**
  * fonction qui affiche le nombre d'item du panier dans 
  * l'icone panier si existe
@@ -219,31 +232,155 @@ function afficherCart(){
     }
 }
 
-// =========== MISE A JOUR PANIER =========
-function update(){
-    addEvents();
-}
 // =========== AJOUT EVENEMENENTS =========
-function addEvents(){
-    //supprimer un item du panier lors d'un evenement clickf
-    let lesBoutonsDelete = document.querySelectorAll('.btn-delete');
-    console.log(lesBoutonsDelete);
-    lesBoutonsDelete.forEach((btn) => {
-        btn.addEventListener("click", deleteItemInCart);
-    });
-}
-// =========== FONCTION DE GESTION D'EVENEMENENTS =========
-function deleteItemInCart(product){
-    this.parentElement.parentElement.remove();
-    let cartItems = localStorage.getItem("productsInCart"); // récuperer dans localStorage le paramèter productInCart et l'affecter à la variable cartItems
-    cartItems = JSON.parse(cartItems); // convertit l'objet JSON récupérer en objet JS
+document.addEventListener('click', function (event) {
+    // Vérifie si l'élément cliqué est un bouton d'ajout
+    if (event.target.classList.contains('btn-plus')) {
+        // Obtient l'indice de l'élément cliqué
+        let index = Array.from(document.querySelectorAll('.btn-plus')).indexOf(event.target);
+        
+        // Appel de la fonction AjoutQuantite avec l'indice
+        AjoutQuantite(index);
+    }
+    // Vérifie si l'élément cliqué est un bouton de reduction
+    if (event.target.classList.contains('btn-moins')) {
+        // Obtient l'indice de l'élément cliqué
+        let index = Array.from(document.querySelectorAll('.btn-moins')).indexOf(event.target);
+        
+        // Appel de la fonction reduireQuantite avec l'indice
+        reduireQuantite(index);
+    }
+    // Vérifie si l'élément cliqué est un bouton de suppression
+    if (event.target.classList.contains('btn-delete')) {
+        // Obtient l'indice de l'élément cliqué
+        let index = Array.from(document.querySelectorAll('.btn-delete')).indexOf(event.target);
+        
+        // Appel de la fonction deleteItemInCart avec l'indice
+        deleteItemInCart(index);
+    }
+});
 
-    console.log(cartItems);
-    update();
+// =========== FONCTION DE GESTION D'EVENEMENENTS =========
+function deleteItemInCart(index){
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    console.log(cartItems)
+    // Vérifie si le panier existe dans le localStorage
+    if (cartItems) {
+        // Convertit les clés de l'objet cartItems en un tableau
+        let keys = Object.keys(cartItems);
+
+        // Obtient la clé correspondant à l'index spécifié
+        let keyToDelete = keys[index];
+
+        // Obtient la quantité d'éléments supprimés pour mettre à jour cartNumbers
+        let deletedQuantity = cartItems[keyToDelete].inCart;
+
+        // Met à jour totalCost
+        let cartCost = localStorage.getItem("totalCost");
+        cartCost = parseInt(cartCost);
+        if (!isNaN(cartCost) && cartCost >= 0) {
+            localStorage.setItem("totalCost", cartCost - (cartItems[keyToDelete].price * deletedQuantity));
+        }
+
+        // Met à jour cartNumbers
+        let productNumbers = localStorage.getItem('cartNumbers');
+        productNumbers = parseInt(productNumbers);
+        if (!isNaN(productNumbers) && productNumbers >= deletedQuantity) {
+            localStorage.setItem('cartNumbers', productNumbers - deletedQuantity);
+            loadCartNumbers(); // Met à jour l'affichage du nombre d'articles dans le panier
+        }
+
+        // Supprime l'élément du panier
+        delete cartItems[keyToDelete];
+
+        // Met à jour le localStorage avec le nouveau panier
+        localStorage.setItem("productsInCart", JSON.stringify(cartItems)); 
+               
+        // Met à jour l'affichage du panier
+        afficherCart()
+    }
+}
+
+// Fonction pour augmenter la quantité d'un élément dans le panier
+function AjoutQuantite(index) {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+
+    // Vérifie si le panier existe dans le localStorage
+    if (cartItems) {
+        // Convertit les clés de l'objet cartItems en un tableau
+        let keys = Object.keys(cartItems);
+
+        // Obtient la clé correspondant à l'index spécifié
+        let keyToIncrease = keys[index];
+
+        // Augmente la quantité de l'élément dans le panier
+        cartItems[keyToIncrease].inCart += 1;
+
+        // Met à jour le localStorage avec la nouvelle quantité
+        localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+        // Met à jour cartNumbers
+        let productNumbers = localStorage.getItem('cartNumbers');
+        productNumbers = parseInt(productNumbers);
+        if (!isNaN(productNumbers)) {
+            localStorage.setItem('cartNumbers', productNumbers + 1);
+            loadCartNumbers(); // Met à jour l'affichage du nombre d'articles dans le panier
+        }
+
+        // Met à jour totalCost
+        let cartCost = localStorage.getItem("totalCost");
+        cartCost = parseInt(cartCost);
+        if (!isNaN(cartCost) && cartCost >= 0) {
+            localStorage.setItem("totalCost", cartCost + cartItems[keyToIncrease].price);
+        }
+
+        // Met à jour l'affichage du panier
+        afficherCart();
+    }
+}
+
+// Fonction pour réduire la quantité d'un élément dans le panier
+function reduireQuantite(index) {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+
+    // Vérifie si le panier existe dans le localStorage
+    if (cartItems) {
+        // Convertit les clés de l'objet cartItems en un tableau
+        let keys = Object.keys(cartItems);
+
+        // Obtient la clé correspondant à l'index spécifié
+        let keyToDecrease = keys[index];
+
+        // Réduit la quantité de l'élément dans le panier (avec une limite minimale de 1)
+        cartItems[keyToDecrease].inCart = Math.max(1, cartItems[keyToDecrease].inCart - 1);
+
+        // Met à jour le localStorage avec la nouvelle quantité
+        localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+        // Met à jour cartNumbers
+        let productNumbers = localStorage.getItem('cartNumbers');
+        productNumbers = parseInt(productNumbers);
+        if (!isNaN(productNumbers) && productNumbers >= 1) {
+            localStorage.setItem('cartNumbers', productNumbers - 1);
+            loadCartNumbers(); // Met à jour l'affichage du nombre d'articles dans le panier
+        }
+
+        // Met à jour totalCost
+        let cartCost = localStorage.getItem("totalCost");
+        cartCost = parseInt(cartCost);
+        if (!isNaN(cartCost) && cartCost >= cartItems[keyToDecrease].price) {
+            localStorage.setItem("totalCost", cartCost - cartItems[keyToDecrease].price);
+        }
+
+        // Met à jour l'affichage du panier
+        afficherCart();
+    }
 }
 
 
 // Appel de la fonction au chargement de la page.
 loadCartNumbers();
 afficherCart();
-addEvents();
